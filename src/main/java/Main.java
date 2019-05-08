@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
         try {
-            System.out.print("C:\\Users\\Виктор\\IdeaProjects\\javafoundations\\src\\main\\resources ");
+            System.out.print("C:\\Users\\Виктор\\IdeaProjects\\javafoundations\\src\\main\\resources\\online-order-sample.csv ");
 
             Scanner input = new Scanner(System.in);
 
