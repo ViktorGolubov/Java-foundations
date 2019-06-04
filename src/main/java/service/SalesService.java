@@ -22,8 +22,8 @@ public class SalesService implements OnlineOrderOps<Order, Customer> {
 
         BufferedReader reader = null;
         List<String> orders = new ArrayList<String>();
-        try
-        {
+
+        try {
             File file = new File("./src/main/resources/online-order-sample.csv");
             reader = new BufferedReader(new FileReader(file));
 
@@ -32,14 +32,9 @@ public class SalesService implements OnlineOrderOps<Order, Customer> {
 
             String line;
             while ((line = reader.readLine()) != null) {
-
-                String[] items = line.split(",");
-                System.out.println(line);
+                orders.add(line);
             }
-        } catch(
-                IOException e)
-
-        {
+        } catch(IOException e) {
             e.printStackTrace();
         } finally
 
@@ -55,7 +50,7 @@ public class SalesService implements OnlineOrderOps<Order, Customer> {
     }
 
     public int getNumberOrders(List orderList) {
-        return 0;
+        return orderList.size();
     }
 
     public Order getOrder(List orderList, int orderIndex) {
