@@ -9,13 +9,15 @@ public class Order {
     private Starter starter;
     private MainCourse mainCourse;
     private Dessert dessert;
+    private Customer customer;
 
 
     public Order() {}
 
 
-    public Order(String customerName) {
+    public Order(String customerName, Customer customer) {
         this.customerName = customerName;
+        this.customer = customer;
     }
 
 
@@ -37,6 +39,10 @@ public class Order {
 
 
     public Order getOrder() { return this; }
+
+    public void setOrder(Customer customer) {
+        this.customer = customer;
+    }
 
     public Starter getStarter() { return starter; }
 

@@ -6,11 +6,16 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class SalesService implements OnlineOrderOps {
+public class SalesService implements OnlineOrderOps<Order, Customer> {
+
+    public SalesService() {
+
+    }
 
 
     public List<String> readDocument() throws IOException {
@@ -19,10 +24,10 @@ public class SalesService implements OnlineOrderOps {
         List<String> orders = new ArrayList<String>();
         try
         {
-            File file = new File("C:\\Users\\Виктор\\IdeaProjects\\javafoundations\\src\\main\\resources\\online-order-sample.csv");
+            File file = new File("./src/main/resources/online-order-sample.csv");
             reader = new BufferedReader(new FileReader(file));
 
-
+            // In this way im skipping the first line of the csv file
             reader.readLine();
 
             String line;
@@ -53,7 +58,7 @@ public class SalesService implements OnlineOrderOps {
         return 0;
     }
 
-    public Object getOrder(List orderList, int orderIndex) {
+    public Order getOrder(List orderList, int orderIndex) {
         return null;
     }
 
@@ -61,7 +66,7 @@ public class SalesService implements OnlineOrderOps {
         return null;
     }
 
-    public Dish getDish(List dishList, int dishIndex) {
+    public Customer getDish(List dishList, int dishIndex) {
         return null;
     }
 
@@ -70,14 +75,6 @@ public class SalesService implements OnlineOrderOps {
     }
 
     public List getDishesByType(List dishList, String dishType) {
-        return null;
-    }
-
-    public List getDishesByCategory(List dishes, String category) {
-        return null;
-    }
-
-    public String getStatsByCategory(List dishes, String category) {
         return null;
     }
 

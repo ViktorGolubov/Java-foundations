@@ -12,27 +12,34 @@ public interface OnlineOrderOps<T, S extends Dish>  {
      * in which way the on-line order model should be accessed/treated/employed within the application.
      * This interface MUST be implemented by at least one class of your code.*/
 
-    // retrieves the number of orders from the List input argument
-    int getNumberOrders(List<T> orders);
+        // 'getNumberOrders' simply retrieves the number or orders from the List input argument
+        public int getNumberOrders(List<T> orderList);
 
-    // returns one single order taking an index (referring to a List, for instance) as input argument
-    T getOrder(List<T> orders, int orderId);
+        // 'getOrder' returns an object which represents one single order. It takes an index
+        // (referring to a List, for instance) as input argument
+        public T getOrder(List<T> orderList, int orderIndex);
 
-    // retrieves a String describing every order included in a List used as input argument
-    String getAllOrdersToString(List<T> orders);
+        // 'getAllOrdersToString' retrieves a String describing every order included in a List used as
+        // input argument
+        public String getAllOrdersToString(List<T> orderList);
 
-    // returns one singular dish taking an index (referring to a List, for instance) as input argument
-    S getDish(List<S> dishes, int dishId);
+        // 'getDish' returns an object representing one singular dish. It takes an index (referring to a
+        // List, for instance) as input argument
+        public S getDish(List<S> dishList, int dishIndex);
 
-    // retrieves a String outlining all the dish names included in a List.
-    String getAllDishToString(List<S> dishes);
+        // 'getAllDishToString' retrieves a String outlining all the dish names included in a List.
+        public String getAllDishToString(List<S> dishList);
 
-    // retrieves a List of Dish-related objects corresponding to those dishes which match the type 'dishType' (st, mc, or ds) used as input argument
-    List<S> getDishesByType(List<S> dishes, String dishType);
+        // 'getDishesByType' retrieves a List of Dish-related objects corresponding to those dishes which match the
+        // type 'dishType' (st, mc, or ds) used as input argument
+        public List<S> getDishesByType(List<S> dishList, String dishType);
 
-    // returns a List of Dish-related objects including those dishes which match a category (gfd, vgd, hmd, or sfd) used as input argument
-    List<S> getDishesByCategory(List<S> dishes, String category);
+        // 'getDishesByFeature' returns a List of Dish-related objects including those dishes which belong to a category
+        // defined by a specific feature taken as input argument (gfd, vgd, hmd, or sfd)
+        public List<S> getDishesByFeature(List<S> dishList, String feature);
 
-    // returns the percentage of dishes ordered which match a category (gfd, vgd, hmd, or sfd) used as input argument
-    String getStatsByCategory(List<S> dishes, String category);
-}
+        // 'getStatsByDishType' returns a String with the percentage of dishes ordered that correspond to
+        // a specific type (taken as input argument)
+        public String getStatsByDishType(List<S> dishList, String dishType);
+
+    }
