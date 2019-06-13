@@ -53,29 +53,64 @@ public class SalesService implements OnlineOrderOps<Order, Customer> {
         return orderList.size();
     }
 
+
     public Order getOrder(List orderList, int orderIndex) {
-        return null;
+
+        return (Order) orderList.get(orderIndex);
     }
+
 
     public String getAllOrdersToString(List orderList) {
-        return null;
+
+        return String.valueOf(orderList);
     }
+
 
     public Customer getDish(List dishList, int dishIndex) {
-        return null;
+
+        return (Customer) dishList.get(dishIndex);
     }
+
 
     public String getAllDishToString(List dishList) {
-        return null;
+
+        return String.valueOf(dishList);
     }
+
 
     public List getDishesByType(List dishList, String dishType) {
-        return null;
+
+        List result = new ArrayList<>();
+
+        for (int i = 0; i <= dishList.size() - 1; i++) {
+            String verify = dishList.get(i).toString();
+            if (verify.contains(dishType)) {
+                result.add(dishList.get(i));
+            }
+        }
+        return result;
     }
 
+
     public List getDishesByFeature(List dishList, String feature) {
-        return null;
+
+        List result = new ArrayList<>();
+
+        for(Object verify : dishList){
+            NewDish newDish = (NewDish) verify;
+            if(newDish.isGlutenFree() && feature.equals("gfd")){
+                result.add(newDish);
+            } else if (newDish.isVegetarian() && feature.equals("vgd")){
+                result.add(newDish);
+            } else if(newDish.isHalalMeat() && feature.equals("hmd")){
+                result.add(newDish);
+            } else if (newDish.isSeafoodFree() && feature.equals("sfd")){
+                result.add(newDish);
+            }
+        }
+        return result;
     }
+
 
     public String getStatsByDishType(List dishList, String dishType) {
         return null;
