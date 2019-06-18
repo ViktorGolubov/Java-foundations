@@ -7,6 +7,7 @@
     <groupId>tech.bts.java-foundations</groupId>
     <artifactId>java-foundations</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <build>
         <plugins>
             <plugin>
@@ -19,6 +20,17 @@
             </plugin>
         </plugins>
     </build>
-
+    <dependencies>
+        <dependency>
+            <groupId>com.capgemini.mrchecker</groupId>
+            <artifactId>mrchecker-core-module</artifactId>
+            <version>4.12.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>4.6</version>
+        </dependency>
+    </dependencies>
 
 </project>

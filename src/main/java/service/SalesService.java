@@ -1,5 +1,7 @@
 package service;
 
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
 import model.*;
 
 import java.io.BufferedReader;
@@ -47,6 +49,31 @@ public class SalesService implements OnlineOrderOps<Order, Customer> {
         }
 
         return orders;
+    }
+
+    public List createDishes(String csvfile) throws Exception {
+        List<NewDish> dishes = new ArrayList();
+
+        BufferedReader reader = new BufferedReader(new FileReader(csvfile));
+        CSVReader csvReader = new CSVReaderBuilder(reader).withSkipLines(1).build();
+        List<String[]> elements = csvReader.readAll();
+
+
+        for (String[] element : elements) {
+            NewDish dish = new NewDish();
+            dish.setDishName(String.valueOf(element[1]));
+            dish.setType(String.valueOf(element[2]));
+            dish.setGlutenFree(Boolean.parseBoolean(element[3]));
+            dish.setVegetarian(Boolean.parseBoolean(element[4]));
+            dish.setHalalMeat(Boolean.parseBoolean(element[5]));
+            dish.setSeafoodFree(Boolean.parseBoolean(element[6]));
+            dish.setExtras(element[7]);
+
+            dishes.add(dish);
+
+        }
+        return dishes;
+
     }
 
     public int getNumberOrders(List orderList) {
